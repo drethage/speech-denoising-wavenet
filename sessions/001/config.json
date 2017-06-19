@@ -1,0 +1,62 @@
+{
+    "dataset": {
+        "extract_voice": true,
+        "in_memory_percentage": 1,
+        "noise_only_percent": 0.1,
+        "num_condition_classes": 29,
+        "path": "data/NSDTSEA/",
+        "regain": 0.06,
+        "sample_rate": 16000,
+        "type": "nsdtsea"
+    },
+    "model": {
+        "condition_encoding": "binary",
+        "dilations": 9,
+        "filters": {
+            "lengths": {
+                "res": 3,
+                "final": [3, 3],
+                "skip": 1
+            },
+            "depths": {
+                "res": 128,
+                "skip": 128,
+                "final": [2048, 256]
+            }
+        },
+        "num_params": 6342657,
+        "num_stacks": 3,
+        "input_length": 7739,
+        "receptive_field_length": 6139,
+        "target_field_length": 1601,
+        "target_padding": 1
+    },
+    "optimizer": {
+        "decay": 0.0,
+        "epsilon": 1e-08,
+        "lr": 0.001,
+        "momentum": 0.9,
+        "type": "adam"
+    },
+    "training": {
+        "batch_size": 10,
+        "early_stopping_patience": 16,
+        "loss": {
+            "out_1": {
+                "l1": 1,
+                "l2": 0,
+                "weight": 1
+            },
+            "out_2": {
+                "l1": 1,
+                "l2": 0,
+                "weight": 1
+            }
+        },
+        "num_epochs": 250,
+        "num_test_samples": 100,
+        "num_train_samples": 1000,
+        "path": "sessions/001",
+        "verbosity": 1
+    }
+}
