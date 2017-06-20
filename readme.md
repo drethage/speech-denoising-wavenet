@@ -30,7 +30,7 @@ Example: `THEANO_FLAGS=optimizer=fast_compile,device=gpu python main.py --mode i
 ###### Speedup
 To achieve faster denoising, one can increase the target-field length by use of the optional `--target_field_length` argument. This defines the amount of samples that are denoised in a single forward propagation, saving redundant calculations. In the following example, it is increased 10x that of when the model was trained, the batch_size is reduced to 4.
 
-Faster Example: `THEANO_FLAGS=device=gpu python main.py --mode inference --target_field_length 160001 --batch_size 4 --config sessions/001/config.json --noisy_input_path data/NSDTSEA/noisy_testset_wav --clean_input_path data/NSDTSEA/clean_testset_wav`
+Faster Example: `THEANO_FLAGS=device=gpu python main.py --mode inference --target_field_length 16001 --batch_size 4 --config sessions/001/config.json --noisy_input_path data/NSDTSEA/noisy_testset_wav --clean_input_path data/NSDTSEA/clean_testset_wav`
 
 #### Training:
 
