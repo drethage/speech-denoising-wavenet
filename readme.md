@@ -1,7 +1,7 @@
 A Wavenet For Speech Denoising
 ====
 
-A neural network for end-to-end speech denoising. As described in: [link to paper]
+A neural network for end-to-end speech denoising, as described in: "[A Wavenet For Speech Denoising](https://arxiv.org/abs/1706.07162)"
 
 Listen to denoised samples under varying noise conditions and SNRs [here](http://www.jordipons.me/apps/speech-denoising-wavenet/)
 
@@ -14,7 +14,7 @@ It is recommended to use a [virtual environment](http://virtualenvwrapper.readth
 2. `pip install -r requirements.txt`
 3. Install [pygpu](http://deeplearning.net/software/libgpuarray/installation.html)
 
-*Currently the project requires **Keras 1.2** and at minimum **Theano 0.9.0**, the large dilations present in the architecture are not supported by the current version of Tensorflow (1.2.0)*
+*Currently the project requires **Keras 1.2** and **Theano 0.9.0**, the large dilations present in the architecture are not supported by the current version of Tensorflow (1.2.0)*
 
 Usage
 -----
@@ -34,7 +34,7 @@ Faster Example: `THEANO_FLAGS=device=gpu python main.py --mode inference --targe
 
 #### Training:
 
-`THEANO_FLAGS=device=gpu python main.py --mode training`
+`THEANO_FLAGS=device=gpu python main.py --mode training --config config.json`
 
 #### Configuration
 A detailed description of all configurable parameters can be found in [config.md](https://github.com/drethage/speech-denoising-wavenet/blob/master/config.md)
