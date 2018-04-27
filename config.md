@@ -41,10 +41,10 @@ How training will be carried out
     * **l1**: (float) Percentage weight given to L1 loss
     * **l2**: (float) Percentage weight given to L2 loss
     * **weight**: (float) Percentage weight given to first term
-* **out_2**: Second term in two term loss
-  * **l1**: (float) Percentage weight given to L1 loss
-  * **l2**: (float) Percentage weight given to L2 loss
-  * **weight**: (float) Percentage weight given to second term
+  * **out_2**: Second term in two term loss
+    * **l1**: (float) Percentage weight given to L1 loss
+    * **l2**: (float) Percentage weight given to L2 loss
+    * **weight**: (float) Percentage weight given to second term
 * **num_epochs**: (int) Maximum number of epochs to train for
 * **num_train_samples**: (int) Number of training samples presented to the model in one epoch,
 * **num_test_samples**: (int) Number of test samples presented to the model in one epoch,
