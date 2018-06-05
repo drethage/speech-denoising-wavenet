@@ -1,11 +1,11 @@
-FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
+FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
 
 LABEL maintainer="nyker <nykergoto@gmail.com>"
 ARG jupyter_token=dolphin
 
 # update
 RUN apt-get update &&\
-  apt-get install -y sudo git zsh openssh-server wget gcc libatlas-base-dev curl
+  apt-get install -y sudo git zsh openssh-server wget gcc libatlas-base-dev curl libsndfile1 nano
 
 ENV TINI_VERSION v0.6.0
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
