@@ -1,0 +1,9 @@
+version: '2'
+services:
+  flaskapp:
+    build: ./docker/
+    container_name: "speech-denoising-wavenet"
+    ports:
+      - '5505:8888'
+    volumes:
+      - ./:/src
