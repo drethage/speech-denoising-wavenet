@@ -6,6 +6,7 @@ services:
       context: ./
       args:
         - jupyter_token=dolphin
+        - user_password=highway
     container_name: "speech-denoising-wavenet"
     runtime: nvidia
     command: ["jupyter", "notebook", "--ip", "0.0.0.0"]
