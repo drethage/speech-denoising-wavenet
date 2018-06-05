@@ -102,3 +102,6 @@ ENV/
 
 #Mac OS
 .DS_Store
+
+data
+sessions
