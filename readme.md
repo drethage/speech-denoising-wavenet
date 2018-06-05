@@ -16,6 +16,19 @@ It is recommended to use a [virtual environment](http://virtualenvwrapper.readth
 
 *Currently the project requires **Keras 1.2** and **Theano 0.9.0**, the large dilations present in the architecture are not supported by the current version of Tensorflow (1.2.0)*
 
+## Run with docker
+
+If you want run with docker, use the following commands.
+
+For run, `nvidia-docker2` is required to the compose argument `runtime: nvidia`.
+
+> [note] the docker image build on cuda:8 image. if you use cpu only, the docker-compose file possibly do not work well.
+
+```bash
+docker-compose up -d
+docker exec -it speech-denoising-wavenet bash
+```
+
 Usage
 -----
 
