@@ -1,15 +1,16 @@
 FROM nvidia/cuda:9.1-cudnn7-devel-ubuntu16.04
 
 LABEL maintainer="nyker <nykergoto@gmail.com>"
-
-ENV TINI_VERSION v0.6.0
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /usr/bin/tini
-ENTRYPOINT ["/usr/bin/tini", "--"]
+ARG jupyter_token=dolphin
 
 # update
 RUN apt-get update &&\
   apt-get install -y sudo git zsh openssh-server wget gcc libatlas-base-dev curl
+
+ENV TINI_VERSION v0.6.0
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
+RUN chmod +x /usr/bin/tini
+ENTRYPOINT [ "/usr/bin/tini", "--" ]
 
 RUN mkdir /src
 
@@ -38,6 +39,11 @@ RUN pyenv install ${MINICONDA_VERSION} && \
   pyenv rehash &&\
   pyenv global ${MINICONDA_VERSION}
 
+RUN mkdir ~/.jupyter
+RUN echo "c.NotebookApp.open_browser = False\n\ 
+c.NotebookApp.ip = '*'\n\
+c.NotebookApp.token = '${jupyter_token}'" | tee -a ${HOME}/.jupyter/jupyter_notebook_config.py
+
 RUN conda update conda
 
 WORKDIR /src
@@ -47,4 +53,4 @@ RUN conda install pygpu jupyter notebook
 
 EXPOSE 8888
 
-CMD [ "jupyter", "notebook" ]
+CMD [ "jupyter", "notebook", "--ip", "0.0.0.0" ]

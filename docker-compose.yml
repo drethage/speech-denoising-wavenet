@@ -1,8 +1,13 @@
-version: '2'
+version: '3'
 services:
-  flaskapp:
-    build: ./docker/
+  speech-denoising-wavenet:
+    build: 
+      dockerfile: ./docker/Dockerfile
+      context: ./
+      args:
+        - jupyter_token=dolphin
     container_name: "speech-denoising-wavenet"
+    command: ["jupyter", "notebook", "--ip", "0.0.0.0"]
     ports:
       - '5505:8888'
     volumes:
