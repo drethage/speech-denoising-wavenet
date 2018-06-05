@@ -1,0 +1,18 @@
+version: '2.3'
+services:
+  speech-denoising-wavenet:
+    build: 
+      dockerfile: ./docker/Dockerfile
+      context: ./
+      args:
+        - jupyter_token=dolphin
+        - user_password=highway
+    container_name: "speech-denoising-wavenet"
+    runtime: nvidia
+    command: ["jupyter", "notebook", "--ip", "0.0.0.0"]
+    ports:
+      - '5505:8888'
+    volumes:
+      - ./:/src
+      - ./.keras/:/home/penguin/.keras
+      - ./.theanorc:/home/penguin/.theanorc
